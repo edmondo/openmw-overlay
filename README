@@ -1,1 +1,44 @@
 Overlay with ebuilds for openmw
+
+Howto use the overlay
+=====================
+
+* Create locally a clone of the overlay
+
+  mkdir SOMEDIR
+  cd SOMEDIR
+  git clone git://github.com/edmondo/openmw-overlay.git
+
+* Set the PORTDIR_OVERLAY variable into you /etc/make.conf
+
+  PORTDIR_OVERLAY="SOMEDIR/openmw-overlay/"
+
+* Emerge the needed packages
+
+  emerge bullet
+  emerge nvidia-cg-toolki
+  USER="cg" emerge ogre
+  emerge MyGUI mgp123 libsndfile
+  emerge openmw
+
+* Since at the moment openmw is missing the install rule, you will get an error.
+  Red is scary and yes, my ebuild is a crap and sucks. Don't lose your hope and
+  just give the rights to your preferred user to access the workdir of the build.
+
+  For example:
+  chmod 755 /var/tmp/portage/games-rpg/openmw-9999/work
+
+* Set a symbolic link to your morrowind Data File
+
+  ln -s /games/morrowind/Data\ Files/ /var/tmp/portage/games-rpg/openmw-9999/work/openmw-9999_build/data
+
+* Now with your preferred user access the build directory and start openmw
+
+  cd /var/tmp/portage/games-rpg/openmw-9999/work/openmw-9999_build
+  
+  ./omwlauncher
+  or
+  ./openmw
+
+* Enjoy!
+
