@@ -14,8 +14,7 @@ SRC_URI="http://sourceforge.net/projects/ogre/files/ogre/${PV%.0}/${PV}-RC1/${PN
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="+boost cg doc double-precision examples +freeimage ois +opengl poco profile tbb test threads tools +zip"
-REQUIRED_USE="threads? ( || ( boost poco tbb ) )"
+IUSE="+boost cg doc double-precision examples +freeimage ois +opengl profile test threads tools +zip"
 RESTRICT="test" #139905
 
 RDEPEND="media-libs/freetype:2
@@ -29,11 +28,8 @@ RDEPEND="media-libs/freetype:2
 	cg? ( media-gfx/nvidia-cg-toolkit )
 	freeimage? ( media-libs/freeimage )
 	ois? ( dev-games/ois )
-	threads? (
-		poco? ( dev-libs/poco )
-		tbb? ( dev-cpp/tbb )
-	)
 	zip? ( sys-libs/zlib dev-libs/zziplib )"
+
 DEPEND="${RDEPEND}
 	x11-proto/xf86vidmodeproto
 	virtual/pkgconfig
@@ -44,7 +40,6 @@ S=${WORKDIR}/${PN}_src_v${MY_PV}RC1
 
 
 src_prepare() {
-#	epatch "${FILESDIR}"/${P}-gcc46.patch
 #	epatch "${FILESDIR}"/${P}-threading.patch
 	sed -i \
 		-e "s:share/OGRE/docs:share/doc/${PF}:" \
@@ -56,8 +51,7 @@ src_prepare() {
 }
 
 src_configure() {
-	local mycmakeargs=(
-		-DOGRE_FULL_RPATH=NO
+	local mycmakeargs="
 		$(cmake-utils_use boost OGRE_USE_BOOST)
 		$(cmake-utils_use cg OGRE_BUILD_PLUGIN_CG)
 		$(cmake-utils_use doc OGRE_INSTALL_DOCS)
@@ -70,16 +64,9 @@ src_configure() {
 		$(cmake-utils_use threads OGRE_CONFIG_THREADS)
 		$(cmake-utils_use tools OGRE_BUILD_TOOLS)
 		$(cmake-utils_use zip OGRE_CONFIG_ENABLE_ZIP)
-	)
+	"
 
-	if use threads ; then
-		local f
-		for f in poco tbb boost ; do
-			use ${f} || continue
-			mycmakeargs+=( -DOGRE_CONFIG_THREAD_PROVIDER=${f} )
-			break
-		done
-	fi
+	use threads && mycmakeargs+=" -DOGRE_CONFIG_THREAD_PROVIDER=\"boost\""
 
 	cmake-utils_src_configure
 }
