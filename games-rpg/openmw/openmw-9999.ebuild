@@ -4,7 +4,7 @@
 
 EAPI="4"
 
-inherit eutils cmake-utils git
+inherit eutils cmake-utils git-2
 
 EGIT_REPO_URI="git://github.com/zinnschlag/openmw.git"
 
