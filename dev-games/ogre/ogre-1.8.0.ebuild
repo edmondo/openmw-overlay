@@ -9,7 +9,7 @@ inherit eutils cmake-utils
 MY_PV=${PV//./-}
 DESCRIPTION="Object-oriented Graphics Rendering Engine"
 HOMEPAGE="http://www.ogre3d.org/"
-SRC_URI="http://sourceforge.net/projects/ogre/files/ogre/${PV%.0}/${PV}-RC1/${PN}_src_v${MY_PV}RC1.tar.bz2"
+SRC_URI="http://sourceforge.net/projects/ogre/files/ogre/${PV%.0}/${PV}/${PN}_src_v${MY_PV}.tar.bz2"
 
 LICENSE="MIT"
 SLOT="0"
@@ -36,7 +36,7 @@ DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )
 	test? ( dev-util/cppunit )"
 
-S=${WORKDIR}/${PN}_src_v${MY_PV}RC1
+S=${WORKDIR}/${PN}_src_v${MY_PV}
 
 
 src_prepare() {
