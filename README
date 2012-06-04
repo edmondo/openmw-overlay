@@ -21,24 +21,17 @@ Howto use the overlay
   emerge MyGUI mgp123 libsndfile
   emerge openmw
 
-* Since at the moment openmw is missing the install rule, you will get an error.
-  Red is scary and yes, my ebuild is a crap and sucks. Don't lose your hope and
-  just give the rights to your preferred user to access the workdir of the build.
+* Edit you global openmw.cfg
+
+  vi /etc/openmw/openmw.cfg
 
   For example:
-  chmod 755 /var/tmp/portage/games-rpg/openmw-9999/work
-
-* Set a symbolic link to your morrowind Data File
-
-  ln -s /games/morrowind/Data\ Files/ /var/tmp/portage/games-rpg/openmw-9999/work/openmw-9999_build/data
-
-* Now with your preferred user access the build directory and start openmw
-
-  cd /var/tmp/portage/games-rpg/openmw-9999/work/openmw-9999_build
+  resources=/usr/share/games/openmw/resources
+  data=/games/morrowind/data
   
-  ./omwlauncher
-  or
-  ./openmw
+* Start you game with your preferred user
+
+  openmw
 
 * Enjoy!
 
