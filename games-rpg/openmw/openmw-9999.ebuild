@@ -24,30 +24,14 @@ src_install() {
 	dobin ${CMAKE_BUILD_DIR}/openmw
 	dobin ${CMAKE_BUILD_DIR}/omwlauncher
 
-	dodir /usr/share/games/openmw/resources
-	insinto /usr/share/games/openmw/resources
-	doins ${CMAKE_BUILD_DIR}/resources/*
-
-	dodir /usr/share/games/openmw/resources/mygui
-	insinto /usr/share/games/openmw/resources/mygui
-	doins ${CMAKE_BUILD_DIR}/resources/mygui/*
-
-	dodir /usr/share/games/openmw/resources/shadows
-	insinto /usr/share/games/openmw/resources/shadows
-	doins ${CMAKE_BUILD_DIR}/resources/shadows/*
-
-	dodir /usr/share/games/openmw/resources/water
-	insinto /usr/share/games/openmw/resources/water
-	doins ${CMAKE_BUILD_DIR}/resources/water/*
-
-	dodir /usr/share/games/openmw/resources/gbuffer
-	insinto /usr/share/games/openmw/resources/gbuffer
-	doins ${CMAKE_BUILD_DIR}/resources/gbuffer/*
+	dodir /usr/share/games/openmw
+	insinto /usr/share/games/openmw
+	doins -r ${CMAKE_BUILD_DIR}/resources
 
 	dodir /etc/openmw
 	insinto /etc/openmw
 	doins ${CMAKE_BUILD_DIR}/settings-default.cfg
 	doins ${CMAKE_BUILD_DIR}/transparency-overrides.cfg
 	doins ${CMAKE_BUILD_DIR}/openmw.cfg
-	doins ${CMAKE_BUILD_DIR}/plugins.cfg
+	doins ${CMAKE_BUILD_DIR}/launcher.cfg
 }
