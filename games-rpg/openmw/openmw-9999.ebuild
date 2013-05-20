@@ -21,8 +21,11 @@ src_configure() {
 }
 
 src_install() {
-	dobin ${CMAKE_BUILD_DIR}/openmw
+	dobin ${CMAKE_BUILD_DIR}/esmtool
+	dobin ${CMAKE_BUILD_DIR}/mwiniimport
 	dobin ${CMAKE_BUILD_DIR}/omwlauncher
+	dobin ${CMAKE_BUILD_DIR}/opencs
+	dobin ${CMAKE_BUILD_DIR}/openmw
 
 	dodir /usr/share/games/openmw
 	insinto /usr/share/games/openmw
@@ -33,5 +36,4 @@ src_install() {
 	doins ${CMAKE_BUILD_DIR}/settings-default.cfg
 	doins ${CMAKE_BUILD_DIR}/transparency-overrides.cfg
 	doins ${CMAKE_BUILD_DIR}/openmw.cfg
-	doins ${CMAKE_BUILD_DIR}/launcher.cfg
 }
