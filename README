@@ -18,7 +18,8 @@ Howto use the overlay
   emerge bullet
   emerge nvidia-cg-toolki
   USE="cg threads ois" emerge ogre
-  emerge MyGUI mgp123 libsndfile
+  emerge mygui mgp123 libsndfile
+  emerge unshield
   emerge openmw
 
 * Edit you global openmw.cfg
