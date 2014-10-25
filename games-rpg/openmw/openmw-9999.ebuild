@@ -6,7 +6,7 @@ EAPI="4"
 
 inherit eutils cmake-utils git-2
 
-EGIT_REPO_URI="git://github.com/zinnschlag/openmw.git"
+EGIT_REPO_URI="git://github.com/OpenMW/openmw.git"
 EGIT_HAS_SUBMODULES="yes"
 
 DESCRIPTION="OpenMW is a new engine for The Elder Scrolls 3: Morrowind"
