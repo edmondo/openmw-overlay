@@ -21,11 +21,14 @@ src_configure() {
 }
 
 src_install() {
+	dobin ${CMAKE_BUILD_DIR}/bsatool
 	dobin ${CMAKE_BUILD_DIR}/esmtool
-	dobin ${CMAKE_BUILD_DIR}/mwiniimport
-	dobin ${CMAKE_BUILD_DIR}/omwlauncher
-	dobin ${CMAKE_BUILD_DIR}/opencs
 	dobin ${CMAKE_BUILD_DIR}/openmw
+	dobin ${CMAKE_BUILD_DIR}/openmw-cs
+	dobin ${CMAKE_BUILD_DIR}/openmw-essimporter
+	dobin ${CMAKE_BUILD_DIR}/openmw-iniimporter
+	dobin ${CMAKE_BUILD_DIR}/openmw-launcher
+	dobin ${CMAKE_BUILD_DIR}/openmw-wizard
 
 	dodir /usr/share/games/openmw
 	insinto /usr/share/games/openmw
