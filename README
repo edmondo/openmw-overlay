@@ -16,10 +16,7 @@ Howto use the overlay
 * Emerge the needed packages
 
   emerge bullet
-  emerge nvidia-cg-toolki
-  USE="cg threads ois" emerge ogre
-  USE="ogre -opengl" emerge mygui
-  emerge mgp123 libsndfile
+  emerge openscenegraph
   emerge unshield
   emerge openmw
 
@@ -36,4 +33,14 @@ Howto use the overlay
   openmw
 
 * Enjoy!
+
+-----------------------------------
+DEPRACATED: OpenMW with Ogre engine
+  emerge bullet
+  emerge nvidia-cg-toolki
+  USE="cg threads ois" emerge ogre
+  USE="ogre -opengl" emerge mygui
+  emerge mgp123 libsndfile
+  emerge unshield
+  emerge openmw
 
