@@ -37,6 +37,5 @@ src_install() {
 	dodir /etc/openmw
 	insinto /etc/openmw
 	doins ${CMAKE_BUILD_DIR}/settings-default.cfg
-	doins ${CMAKE_BUILD_DIR}/transparency-overrides.cfg
 	doins ${CMAKE_BUILD_DIR}/openmw.cfg
 }
